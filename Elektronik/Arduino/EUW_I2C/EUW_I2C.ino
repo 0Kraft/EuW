@@ -4,22 +4,6 @@
 
 char t[10]={};//empty array where to put the numbers comming from the slave
 volatile int Val; // varaible used by the master to sent data to the slave
-long counter_ic=0;
-#include <EasyTransferI2C.h>
-
-//create object
-EasyTransferI2C ET;
-
-struct SEND_DATA_STRUCTURE{
-  //put your variable definitions here for the data you want to send
-  //THIS MUST BE EXACTLY THE SAME ON THE OTHER ARDUINO
-  int16_t value;
-
-};
-
-
-//give a name to the group of data
-SEND_DATA_STRUCTURE mydata;
 
 
 //define slave i2c address
@@ -195,62 +179,35 @@ void sendshutdown(){
 }
 
 void makegrab(String chkstring){
-
- 
-  if(chkstring.endsWith("A")) {
-    Val = 3;
-    Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
-    Wire.write (Val);
-     Wire.endTransmission ();
-
-  
-
-  }else{
  Val = 3;
-    Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
-    Wire.write (Val);
-     Wire.endTransmission ();
 
+ if(chkstring.endsWith("A")) {    
+    Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);    
+  }else{   
+    Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);   
   }
 
-
-
-
-
-  sendstatus();
-  delay(100);
+  Wire.write (Val);
+  Wire.endTransmission ();tatus();
+  delay(50);
 
   Serial.println("ROGER$");
  
-
-
-
 }
-
-
-
 
 void opengrab(String chkstring){
   
- 
+  Val = 2;
   if(chkstring.endsWith("A")) {
-     Val = 2;
-    Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
-    Wire.write (Val);
-     Wire.endTransmission ();
-    
-  
+       Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
   }else{
-     Val = 2;
     Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
-    Wire.write (Val);
-     Wire.endTransmission ();
-    
-   
   }
+  Wire.write (Val);
+  Wire.endTransmission ();
           
   sendstatus();
-  delay(100);
+  delay(50);
   Serial.println("ROGER$");
 
 
@@ -261,17 +218,17 @@ void swap(){
     Val = 4;
     Wire.beginTransmission (8);
     Wire.write (Val);
-     Wire.endTransmission ();
+    Wire.endTransmission ();
     
-   delay(100);
-   Val = 4;
+    delay(5);
+    Val = 4;
     Wire.beginTransmission (9);
     Wire.write (Val);
-     Wire.endTransmission ();
+    Wire.endTransmission ();
     
-   delay(30);
+    delay(50);
   
-  Serial.println("ROGER$");
+    Serial.println("ROGER$");
 
 }
 
@@ -526,28 +483,24 @@ void switchir(String chkstring){
 
 void turn_auto(String chkstring){
 
+    if(chkstring.endsWith("A")) 
+    {
+      Val = 1;
+      Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
+      Wire.write (Val);
+      Wire.endTransmission ();
+    }
+    else
+    {
+        Val = 1;
+        Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
+        Wire.write (Val);
+        Wire.endTransmission ();
+    }
 
-
-
-mydata.value = 1001;
-
-if(chkstring.endsWith("A")) {
-     Val = 1;
-    Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
-    Wire.write (Val);
-     Wire.endTransmission ();
-
-}else{
-    Val = 1;
-    Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
-    Wire.write (Val);
-     Wire.endTransmission ();
-
-}
-
-sendstatus();
-delay(100);
-Serial.println("ROGER$");
+    sendstatus();
+    delay(100);
+    Serial.println("ROGER$");
 
 }
 
@@ -657,13 +610,7 @@ void setup() {
 
 
 
-
-Serial.println("START####$");
-
-
-
-
-
+  Serial.println("START####$");
 
 
 }
@@ -675,9 +622,6 @@ Serial.println("START####$");
 void loop()
 {
 
-     
-
-     
       Wire.requestFrom(I2C_SLAVE_ADDRESS_A, 3);    // request 3 bytes from slave device #8
       bool question = false;
       //gathers data comming from slave
@@ -686,47 +630,42 @@ void loop()
           t[i] = Wire.read(); // every character that arrives it put in order in the empty array "t"
           i=i+1;
         }
-         String chk = t;
-       if(chk.startsWith("100")) {
-        question=true;
-            
+      String chk = t;
+      if(chk.startsWith("100")) 
+       {
+        question=true;            
         Serial.println("I2C MESSAGE RETURN SUCCESS");
-       
-      }
-      
+       }
+      delay(5);
 
-      
-     delay(50);
-         chk = " ";
-         t[10]={};
+      chk = " ";
+      t[10]={};
       Wire.requestFrom(I2C_SLAVE_ADDRESS_B, 3);    // request 3 bytes from slave device #8
       
       //gathers data comming from slave
-        i=0; //counter for each bite as it arrives
-        while (Wire.available()) { 
+      i=0; //counter for each bite as it arrives
+      while (Wire.available()) { 
           t[i] = Wire.read(); // every character that arrives it put in order in the empty array "t"
           i=i+1;
-        }
-
+      }
       
-       chk = t;
-       if(chk.startsWith("200")) {
-         
-          question=true;
+      chk = t;
+      if(chk.startsWith("200")) {         
+         question=true;
          Serial.println("I2C MESSAGE RETURN SUCCESS 2");
-         counter_ic=0;
-        
+          
       }
 
     
     
-     if(question){
-         delay(50);
+     if(question)
+     {
+         delay(5);
          Val=5;
          Wire.beginTransmission (8);
          Wire.write (Val);
          Wire.endTransmission ();
-         delay(50);
+         delay(5);
          
          Wire.beginTransmission (9);
          Wire.write (Val);
@@ -735,25 +674,7 @@ void loop()
      }
       
 
-  /*
-  
-  int swapcheck =0;
-  swapcheck = digitalRead(2);
-  swapcheck = swapcheck + digitalRead(12);
-  if(swapcheck>0){
-  
-     //checkswap
-       mydata.value=1005;
-            ET.sendData(I2C_SLAVE_ADDRESS_A);
-            ET.sendData(I2C_SLAVE_ADDRESS_B);
-            sendstatus();
-            Serial.println("ROGER$");
-      
-  }
-      //checkswap
-      */
-
-  if (readline(Serial.read(), buffer, 80) > 0) {
+ if (readline(Serial.read(), buffer, 80) > 0) {
 
       String checkstring = buffer;
 
