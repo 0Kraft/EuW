@@ -80,6 +80,8 @@ volatile int Val; // varaible used by the master to sent data to the slave
   Servo servoB3;
   int B3_ms=2350;
 
+  
+
   int gripperB=11;
   int lockingB=10;
   int rotationB=9;
@@ -188,7 +190,7 @@ void makegrab(String chkstring){
   }
 
   Wire.write (Val);
-  Wire.endTransmission ();tatus();
+  Wire.endTransmission ();
   delay(50);
 
   Serial.println("ROGER$");
@@ -262,7 +264,7 @@ void calibrate(String chkstring){
       servoA2.attach(lockingA);
       delay(200);
 
-
+      
       servoA2.writeMicroseconds(1300);
       A2_ms=1300;
       delay(250);
