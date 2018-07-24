@@ -1,0 +1,178 @@
+Cmp-Mod V01 Created by Cvpcb (2015-02-06 BZR 5410)-product   date = Mon 09 Feb 2015 04:12:04 PM PST
+
+BeginCmp
+TimeStamp = /57939B2F;
+Reference = C1;
+ValeurCmp = CPOL-EUE2.5-4V;
+IdModule  = E2_5RE;
+EndCmp
+
+BeginCmp
+TimeStamp = /57939BF7;
+Reference = C2;
+ValeurCmp = C-EU025-024X044;
+IdModule  = C025-024X044;
+EndCmp
+
+BeginCmp
+TimeStamp = /57939CBF;
+Reference = C3;
+ValeurCmp = C-EU025-024X044;
+IdModule  = C025-024X044;
+EndCmp
+
+BeginCmp
+TimeStamp = /57939D87;
+Reference = C4;
+ValeurCmp = CPOL-EUE2.5-4V;
+IdModule  = E2_5RE;
+EndCmp
+
+BeginCmp
+TimeStamp = /57939E4F;
+Reference = D1;
+ValeurCmp = 1N5817-B;
+IdModule  = DO41-7.6;
+EndCmp
+
+BeginCmp
+TimeStamp = /57939F17;
+Reference = D2;
+ValeurCmp = 1N5817-B;
+IdModule  = DO41-7.6;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A043;
+Reference = J1;
+ValeurCmp = 1X2-3.5MM;
+IdModule  = 1X2-3.5MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A10B;
+Reference = J3;
+ValeurCmp = 1X2-3.5MM;
+IdModule  = 1X2-3.5MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A1D3;
+Reference = J4;
+ValeurCmp = 1X2-3.5MM;
+IdModule  = 1X2-3.5MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A29B;
+Reference = Q1;
+ValeurCmp = STP5NA50;
+IdModule  = TO220BV;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A363;
+Reference = Q2;
+ValeurCmp = STP5NA50;
+IdModule  = TO220BV;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A42B;
+Reference = R1;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A4F3;
+Reference = R2;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A5BB;
+Reference = R3;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A683;
+Reference = R4;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A74B;
+Reference = R5;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A813;
+Reference = R6;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A8DB;
+Reference = R7;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793A9A3;
+Reference = R8;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793AA6B;
+Reference = R9;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793AB33;
+Reference = R10;
+ValeurCmp = R-EU_0207/2V;
+IdModule  = 0207_2V;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793ABFB;
+Reference = U$1;
+ValeurCmp = NANO;
+IdModule  = NANO;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793ACC3;
+Reference = U$2;
+ValeurCmp = RPI-ZERO;
+IdModule  = RASPBERRYPI_BASTELSTUBE_V13_RASPI_BOARD_B+_FULL;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793AD8B;
+Reference = U$3;
+ValeurCmp = CP8-ADJ;
+IdModule  = CP8-ADJ;
+EndCmp
+
+BeginCmp
+TimeStamp = /5793AE53;
+Reference = U$4;
+ValeurCmp = CP8-ADJ;
+IdModule  = CP8-ADJ;
+EndCmp
+
+EndListe

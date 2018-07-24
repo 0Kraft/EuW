@@ -1,0 +1,192 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L +12V #PWR01
+U 1 1 5A67A1E2
+P 2250 1900
+F 0 "#PWR01" H 2250 1750 50  0001 C CNN
+F 1 "+12V" H 2250 2040 50  0000 C CNN
+F 2 "" H 2250 1900 50  0001 C CNN
+F 3 "" H 2250 1900 50  0001 C CNN
+	1    2250 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR02
+U 1 1 5A67A1F6
+P 2250 2150
+F 0 "#PWR02" H 2250 1900 50  0001 C CNN
+F 1 "GNDREF" H 2250 2000 50  0000 C CNN
+F 2 "" H 2250 2150 50  0001 C CNN
+F 3 "" H 2250 2150 50  0001 C CNN
+	1    2250 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D4
+U 1 1 5A67A232
+P 3050 2150
+F 0 "D4" H 3050 2250 50  0000 C CNN
+F 1 "LED" H 3050 2050 50  0000 C CNN
+F 2 "LEDs:LED_0805_HandSoldering" H 3050 2150 50  0001 C CNN
+F 3 "" H 3050 2150 50  0001 C CNN
+	1    3050 2150
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R4
+U 1 1 5A67A277
+P 2650 2150
+F 0 "R4" V 2730 2150 50  0000 C CNN
+F 1 "R" V 2650 2150 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2580 2150 50  0001 C CNN
+F 3 "" H 2650 2150 50  0001 C CNN
+	1    2650 2150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2900 2150 2800 2150
+$Comp
+L LED D3
+U 1 1 5A67A494
+P 3050 1850
+F 0 "D3" H 3050 1950 50  0000 C CNN
+F 1 "LED" H 3050 1750 50  0000 C CNN
+F 2 "LEDs:LED_0805_HandSoldering" H 3050 1850 50  0001 C CNN
+F 3 "" H 3050 1850 50  0001 C CNN
+	1    3050 1850
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R3
+U 1 1 5A67A49A
+P 2650 1850
+F 0 "R3" V 2730 1850 50  0000 C CNN
+F 1 "R" V 2650 1850 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2580 1850 50  0001 C CNN
+F 3 "" H 2650 1850 50  0001 C CNN
+	1    2650 1850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2900 1850 2800 1850
+$Comp
+L LED D2
+U 1 1 5A67A51D
+P 3050 1500
+F 0 "D2" H 3050 1600 50  0000 C CNN
+F 1 "LED" H 3050 1400 50  0000 C CNN
+F 2 "LEDs:LED_0805_HandSoldering" H 3050 1500 50  0001 C CNN
+F 3 "" H 3050 1500 50  0001 C CNN
+	1    3050 1500
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R2
+U 1 1 5A67A523
+P 2650 1500
+F 0 "R2" V 2730 1500 50  0000 C CNN
+F 1 "R" V 2650 1500 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2580 1500 50  0001 C CNN
+F 3 "" H 2650 1500 50  0001 C CNN
+	1    2650 1500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2900 1500 2800 1500
+$Comp
+L LED D1
+U 1 1 5A67A52A
+P 3050 1200
+F 0 "D1" H 3050 1300 50  0000 C CNN
+F 1 "LED" H 3050 1100 50  0000 C CNN
+F 2 "LEDs:LED_0805_HandSoldering" H 3050 1200 50  0001 C CNN
+F 3 "" H 3050 1200 50  0001 C CNN
+	1    3050 1200
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R1
+U 1 1 5A67A530
+P 2650 1200
+F 0 "R1" V 2730 1200 50  0000 C CNN
+F 1 "R" V 2650 1200 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2580 1200 50  0001 C CNN
+F 3 "" H 2650 1200 50  0001 C CNN
+	1    2650 1200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2900 1200 2800 1200
+Wire Wire Line
+	2500 1200 2400 1200
+Wire Wire Line
+	2400 1200 2400 2150
+Wire Wire Line
+	2400 2150 2500 2150
+Wire Wire Line
+	2350 1850 2500 1850
+Connection ~ 2400 1850
+Wire Wire Line
+	2500 1500 2400 1500
+Connection ~ 2400 1500
+Wire Wire Line
+	2250 1900 2350 1900
+Wire Wire Line
+	2350 1900 2350 1850
+Wire Wire Line
+	3200 1200 3200 2350
+Connection ~ 3200 1500
+Connection ~ 3200 1850
+Wire Wire Line
+	3200 2350 2050 2350
+Wire Wire Line
+	2050 2350 2050 2150
+Wire Wire Line
+	2050 2150 2250 2150
+Connection ~ 3200 2150
+Connection ~ 2250 1900
+Connection ~ 2250 2150
+$EndSCHEMATC

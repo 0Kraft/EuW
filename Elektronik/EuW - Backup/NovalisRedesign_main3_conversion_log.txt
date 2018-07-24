@@ -1,0 +1,23 @@
+#********** START OF renumber-sheet.ulp ULP Version 4.4.4 23-07-2016 :18:26:28 LOG **********#
+    Conversion completed with no Messages
+#********** END OF renumber-sheet.ulp ULP Version 4.4.4 23-07-2016 :18:26:28 LOG **********#
+
+#********** START OF fix_via_hack.ulp ULP Version 4.6.0 23-07-2016 :18:26:39 LOG **********#
+#********** END OF fix_via_hack.ulp ULP Version 4.6.0 23-07-2016 :18:26:39 LOG **********#
+
+#********** START OF eagle6xx-sch-to-kicad-sch.ulp 1.9 23-07-2016 :18:26:43 LOG **********#
+    Conversion completed with no Messages
+#********** END OF eagle6xx-sch-to-kicad-sch.ulp 1.9 23-07-2016 :18:26:43 LOG **********#
+
+#********** START OF exp-lbrs.ulp 6.6 23-07-2016 :18:26:51 LOG **********#
+OK: Eagle lib export from SCH/PCB OK
+    Conversion completed with no Messages
+#********** END OF exp-lbrs.ulp 6.6 23-07-2016 :18:26:51 LOG **********#
+
+
+#********** START OF eagle-lbr2kicad-1.0.ulp 2.3 23-07-2016 :18:27:02 LOG **********#
+Missing Prefix Part =''				CP8-ADJ					NovalisRedesign_main3		M
+Missing Prefix Part =''				NANO					NovalisRedesign_main3		M
+Missing Prefix Part =''				RASPBERRYPI_BASTELSTUBE_V13_RASPI_BOARD_B+_FULL					NovalisRedesign_main3		M
+#********** END OF eagle-lbr2kicad-1.0.ulp 2.3 23-07-2016 :18:27:02 LOG **********#
+
