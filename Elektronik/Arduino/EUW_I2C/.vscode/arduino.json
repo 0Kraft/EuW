@@ -1,5 +1,6 @@
 {
     "board": "arduino:avr:nano",
     "configuration": "cpu=atmega328",
-    "sketch": "EUW_I2C.ino"
+    "sketch": "EUW_I2C.ino",
+    "port": "COM4"
 }

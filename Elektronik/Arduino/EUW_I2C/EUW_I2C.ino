@@ -112,14 +112,14 @@ long counter=0;
       int i;
 
         for(i=0;i< mitteln;i++) {
-          vcc = 4.43;    // Supply Voltage Arduino Nano - measured
+          vcc = 5.14;    // Supply Voltage Arduino Nano - measured
           if(opt==1){
             value = analogRead(PIN_BAT_CON);
             }
           else{
             value = analogRead(PIN_BAT_MOT);
             }
-          volt = ((value / 1023.0) * vcc)*2.82; // only correct if Vcc = 5.0 volts
+          volt = (value / 1023.0); // only correct if Vcc = 5.0 volts; * vcc
           voltmittel += volt;                               // Summieren
         }
 
@@ -231,16 +231,6 @@ void swap(){
     delay(50);
   
     Serial.println("ROGER$");
-
-}
-
-void set_swap(String chkstring){
-
-  swap_time=chkstring.substring(9,13).toInt();
-
-  sendstatus();
-  delay(300);
-  Serial.println("ROGER$");
 
 }
 
@@ -577,43 +567,33 @@ void setup() {
   Wire.begin();
   //start the library, pass in the data details and the name of the serial port. Can be Serial, Serial1, Serial2, etc.
 //  ET.begin(details(mydata), &Wire);
-  
-  
+    
   Serial.begin(9600);
-
 // in der Setup-Routine
 
  pinMode(PIN_RPI_5V, OUTPUT);
  digitalWrite(PIN_RPI_5V, HIGH);   //start RPI
-
-
 
  pinMode(A3, OUTPUT);
 
  pinMode(11, OUTPUT);
  pinMode(12, OUTPUT);
 
-
  pinMode(3, OUTPUT);
  pinMode(2, OUTPUT);
 
  pinMode(2, OUTPUT);
 
-
+ pinMode(PIN_BAT_MOT,INPUT);
+ pinMode(PIN_BAT_CON,INPUT);
 
 
  delay(1000);
 
-
-
-
 //  servoA1.attach(6); //analog pin 0   gripper
 //  servoA2.attach(5); //analog pin 0   locking
 
-
-
   Serial.println("START####$");
-
 
 }
 
@@ -739,13 +719,7 @@ void loop()
     init_EuW(checkstring);
     }
 
-    if(checkstring.startsWith("set_swap#")) {
-    set_swap(checkstring);
-    }
-
-
-
-
+    
 
   }
 
