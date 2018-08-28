@@ -1,7 +1,9 @@
 #include <Servo.h>
 
 Servo myservo; 
-int pos = 600;    // variable to store the servo position
+int pos = 1500;    // variable to store the servo position
+
+int servoPin = A0;
 
 
 
@@ -13,7 +15,7 @@ void setup() {
   Serial.begin(9600);
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
-  myservo.attach(9); 
+  myservo.attach(servoPin); 
   myservo.writeMicroseconds(pos);  
 }
 
@@ -21,15 +23,15 @@ void loop() {
   // print the string when a newline arrives:
   if (stringComplete) {
     Serial.println(inputString);
-    myservo.attach(9);
+    myservo.attach(servoPin);
     int adder=1;
     int aim = inputString.toInt();
     // clear the string:
     if(aim>pos){
-      adder=30;
+      adder=5;
       Serial.println("+");
     }else{
-      adder=-30;
+      adder=-5;
       Serial.println("-");
       }
       
@@ -39,10 +41,10 @@ void loop() {
     pos=pos+adder;
     myservo.writeMicroseconds(pos);  
     delay(5);
-    Serial.println(abs(aim-pos));
+   // Serial.println(abs(aim-pos));
      Serial.println(pos);
-      Serial.println(aim);
-      Serial.println("##");
+      //Serial.println(aim);
+     // Serial.println("##");
     
     }
     myservo.writeMicroseconds(aim);  
@@ -63,6 +65,7 @@ void loop() {
  */
 void serialEvent() {
   while (Serial.available()) {
+    
     // get the new byte:
     char inChar = (char)Serial.read();
     // add it to the inputString:
@@ -71,6 +74,7 @@ void serialEvent() {
     // so the main loop can do something about it:
     if (inChar == '\n') {
       stringComplete = true;
+      Serial.println(inputString);
     }
   }
 }

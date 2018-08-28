@@ -165,7 +165,7 @@ if(Val!=0){
                               turn_aim = 700;
                                
                             }else{
-                              turn_aim = 1800;
+                              turn_aim = 2400;
                              
                             }
 
@@ -175,7 +175,7 @@ if(Val!=0){
 
                             while(A3_ms<turn_aim){
 
-                                A3_ms=A3_ms+1;
+                                A3_ms=A3_ms+5;
                                 servoA3.writeMicroseconds(A3_ms);
                                 delay(12);
                             }
@@ -187,7 +187,7 @@ if(Val!=0){
 
                             while(A3_ms>turn_aim){
 
-                                A3_ms=A3_ms-1;
+                                A3_ms=A3_ms-5;
                                 servoA3.writeMicroseconds(A3_ms);
                                 delay(12);
                             }

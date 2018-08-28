@@ -181,15 +181,14 @@ void sendshutdown(){
 }
 
 void makegrab(String chkstring){
- Val = 3;
-
+ 
  if(chkstring.endsWith("A")) {    
     Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);    
   }else{   
     Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);   
   }
 
-  Wire.write (Val);
+  Wire.write ("3");
   Wire.endTransmission ();
   delay(50);
 
@@ -199,13 +198,13 @@ void makegrab(String chkstring){
 
 void opengrab(String chkstring){
   
-  Val = 2;
+  
   if(chkstring.endsWith("A")) {
        Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
   }else{
     Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
   }
-  Wire.write (Val);
+  Wire.write ("2");
   Wire.endTransmission ();
           
   sendstatus();
@@ -217,16 +216,18 @@ void opengrab(String chkstring){
 
 void swap(){
 
-    Val = 4;
+    
     Wire.beginTransmission (8);
-    Wire.write (Val);
+    Wire.write ("4");
     Wire.endTransmission ();
     
+    /*
     delay(5);
     Val = 4;
     Wire.beginTransmission (9);
     Wire.write (Val);
     Wire.endTransmission ();
+    */
     
     delay(50);
   
@@ -234,89 +235,37 @@ void swap(){
 
 }
 
-void calibrate(String chkstring){
-
-
-  opengrab(chkstring);
+void setturn(String chkstring){
 
   if(chkstring.endsWith("A")) {
-
-  servoA1.attach(gripperA);
-  delay(200);
-  servoA1.writeMicroseconds(2300);
-  A1_ms=2300;
-  delay(500);
-
-
-  servoA1.detach();
-
-
-      servoA2.attach(lockingA);
-      delay(200);
-
-      
-      servoA2.writeMicroseconds(1300);
-      A2_ms=1300;
-      delay(250);
-
-      while((A2_ms>650)&&(statesensorlockingA!=HIGH)){
-
-        A2_ms=A2_ms-7;
-
-        servoA2.writeMicroseconds(A2_ms);
-        delay(35);
-        statesensorlockingA = digitalRead(sensorlockingA);
-        locking_positionA=A2_ms;
-
-      }
-
-      Serial.print("NEWCALA##");
-      Serial.print(locking_positionA);
-      Serial.println("$");
-      servoA2.detach();
-
+       Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
+  }else{
+       Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
   }
-
-  if(chkstring.endsWith("B")) {
-
-  servoB1.attach(gripperB);
-  delay(200);
-  servoB1.writeMicroseconds(2300);
-  B1_ms=2300;
-  delay(500);
-
-
-  servoB1.detach();
+ 
+  char charBuf[chkstring.length()+1];
+  chkstring.toCharArray(charBuf, chkstring.length()+1) ;
+  Wire.write(charBuf);
+  Wire.endTransmission ();
+ 
+  Serial.println("ROGER$");
 
 
-      servoB2.attach(lockingB);
-      delay(200);
+}
 
+void calibturn(String chkstring){
 
-      servoB2.writeMicroseconds(1300);
-      B2_ms=1300;
-      delay(250);
-
-      while((B2_ms>650)&&(statesensorlockingB!=HIGH)){
-
-        B2_ms=B2_ms-5;
-
-        servoB2.writeMicroseconds(B2_ms);
-        delay(40);
-        statesensorlockingB = digitalRead(sensorlockingB);
-        locking_positionB=B2_ms;
-
-      }
-
-      Serial.print("NEWCALB##");
-      Serial.print(locking_positionB);
-      Serial.println("$");
-      servoB2.detach();
-
+  if(chkstring.endsWith("A")) {
+       Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
+  }else{
+       Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
   }
-
-delay(100);
-
+ 
+  char charBuf[chkstring.length()+1];
+  chkstring.toCharArray(charBuf, chkstring.length()+1) ;
+  Wire.write(charBuf);
+  Wire.endTransmission ();
+ 
   Serial.println("ROGER$");
 
 
@@ -477,16 +426,16 @@ void turn_auto(String chkstring){
 
     if(chkstring.endsWith("A")) 
     {
-      Val = 1;
+      
       Wire.beginTransmission (I2C_SLAVE_ADDRESS_A);
-      Wire.write (Val);
+      Wire.write ("1");
       Wire.endTransmission ();
     }
     else
     {
-        Val = 1;
+       
         Wire.beginTransmission (I2C_SLAVE_ADDRESS_B);
-        Wire.write (Val);
+        Wire.write ("1");
         Wire.endTransmission ();
     }
 
@@ -711,8 +660,12 @@ void loop()
     sendstatus();
     }
 
-    if(checkstring.startsWith("calibration")) {
-    calibrate(checkstring);
+    if(checkstring.startsWith("setturn##")) {
+    setturn(checkstring);
+    }
+
+    if(checkstring.startsWith("calibturn")) {
+    calibturn(checkstring);
     }
 
     if(checkstring.startsWith("init#####")) {

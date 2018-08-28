@@ -128,10 +128,10 @@ if(Val!=0){
                           int turn_aim = 0;
                            if(A3_ms>1500)
                             {
-                              turn_aim = 700;
+                              turn_aim = 500;
                                
                             }else{
-                              turn_aim = 2100;
+                              turn_aim = 2500;
                              
                             }
 
